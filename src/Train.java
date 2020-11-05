@@ -31,9 +31,15 @@ public class Train {
 	public String print() {
 		String result ="";
 		for(int i=0 ; i<listwagon.size(); i++) {
-			result += listwagon.get(i).print();
-			if(i != listwagon.size()-1) {
-				result += "::";
+			if(listwagon.get(i) instanceof Head && i!=0) {
+				Head notHead = (Head) listwagon.get(i);
+				notHead.setHead(false);
+				result += notHead.print();
+			}else {
+				result += listwagon.get(i).print();
+				if(i != listwagon.size()-1) {
+					result += "::";
+				}
 			}
 		}
 		return result;
@@ -48,17 +54,19 @@ public class Train {
 		listwagon.remove(0);
 	}
 	
-	public void fill() {
+	public boolean fill() {
 		// by default C => |____| but when we call fill() it becomes |^^^^| because we change isEmpty to false.
 		// get the first |____|
-		for(int i=0 ; i<listwagon.size(); i++) {
-			if(listwagon.get(i) instanceof Cargo) {
-				Cargo cargo = (Cargo) listwagon.get(i);
+		for(Wagon w : listwagon) {
+			if(w instanceof Cargo) {
+				Cargo cargo = (Cargo) w;
 				if(cargo.isEmpty()) {
 					cargo.setEmpty(false);
+					return true;
 				}
 			}
 		}
+		return false;
 	}
 
 }

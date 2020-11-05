@@ -6,13 +6,7 @@ public class Cargo extends Wagon{
 
 	@Override
 	public String print() {
-		if(isEmpty) {
-			return "|____|";
-		}else if(!isEmpty){
-			return "|^^^^|";
-		}else {
-			return null;
-		}
+		return isEmpty ? "|____|" : "|^^^^|";
 	}
 
 	public boolean isEmpty() {

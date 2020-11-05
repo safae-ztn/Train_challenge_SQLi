@@ -8,6 +8,8 @@ public class TrainFactory {
 			return new Passenger();
 		}else if(c == 'R') {
 			return new Restaurant();
+		}else if(c == 'C') {
+			return new Cargo();
 		}else{
 			return null;
 		}

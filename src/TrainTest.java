@@ -17,13 +17,13 @@ public class TrainTest {
         Train train = new Train("HPRP");
         assertEquals("<HHHH::|OOOO|::|hThT|::|OOOO|", train.print());
     }
-/*
+
     @Test
     public void doubleHeadedTrain() {
         Train train = new Train("HPRPH");
         assertEquals("<HHHH::|OOOO|::|hThT|::|OOOO|::HHHH>", train.print());
     }
-*/
+
     @Test
     public void modifyTrain() {
         Train train = new Train("HPRPH");
@@ -43,7 +43,7 @@ public class TrainTest {
         assertEquals("<HHHH::|^^^^|::|^^^^|::|____|", train.print());
         train.fill();
         assertEquals("<HHHH::|^^^^|::|^^^^|::|^^^^|", train.print());
-        //assertFalse(train.fill());
+        assertFalse(train.fill());
     }
 
     @Test
@@ -54,7 +54,7 @@ public class TrainTest {
         assertEquals("<HHHH::|OOOO|::|^^^^|::|OOOO|::|____|", train.print());
         train.fill();
         assertEquals("<HHHH::|OOOO|::|^^^^|::|OOOO|::|^^^^|", train.print());
-        //assertFalse(train.fill());
+        assertFalse(train.fill());
     }
     
 }
